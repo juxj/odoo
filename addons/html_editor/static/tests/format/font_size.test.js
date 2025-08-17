@@ -2,7 +2,7 @@ import { test, expect } from "@odoo/hoot";
 import { setupEditor, testEditor } from "../_helpers/editor";
 import { unformat } from "../_helpers/format";
 import { strong } from "../_helpers/tags";
-import { setFontSize } from "../_helpers/user_actions";
+import { setFontSize, tripleClick } from "../_helpers/user_actions";
 import { Plugin } from "@html_editor/plugin";
 import { MAIN_PLUGINS } from "@html_editor/plugin_sets";
 import { animationFrame } from "@odoo/hoot-mock";
@@ -29,7 +29,10 @@ test("should change the font size the qweb tag", async () => {
 test("should change the font size of a whole heading after a triple click", async () => {
     await testEditor({
         contentBefore: "<h1>[ab</h1><p>]cd</p>",
-        stepFunction: setFontSize("36px"),
+        stepFunction: async (editor) => {
+            await tripleClick(editor.editable.querySelector("h1"));
+            setFontSize("36px")(editor);
+        },
         contentAfter: '<h1><span style="font-size: 36px;">[ab]</span></h1><p>cd</p>',
     });
 });
@@ -202,9 +205,7 @@ test("should add style to br except line-break br", async () => {
     const { editor, el } = await setupEditor("<p>[]abc<br><br></p>");
     await press(["ctrl", "a"]);
     execCommand(editor, "formatFontSize", { size: "36px" });
-    expect(getContent(el)).toBe(
-        `<p><span style="font-size: 36px;">[abc</span><br><span style="font-size: 36px;">]<br></span></p>`
-    );
+    expect(getContent(el)).toBe(`<p><span style="font-size: 36px;">[abc]</span><br><br></p>`);
 });
 
 test("should add style to br except line-break br (2)", async () => {
@@ -212,6 +213,6 @@ test("should add style to br except line-break br (2)", async () => {
     await press(["ctrl", "a"]);
     execCommand(editor, "formatFontSize", { size: "36px" });
     expect(getContent(el)).toBe(
-        `<p><span style="font-size: 36px;">[abc</span><br><span style="font-size: 36px;"><br>]<br></span></p>`
+        `<p><span style="font-size: 36px;">[abc</span><br><span style="font-size: 36px;"><br>]</span><br></p>`
     );
 });

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 13:22+0000\n"
+"POT-Creation-Date: 2025-05-14 20:47+0000\n"
 "PO-Revision-Date: 2024-09-25 09:41+0000\n"
 "Last-Translator: Junko Augias, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
@@ -492,7 +492,7 @@ msgstr "<span name=\"refresh_text\">このメーリングはできるだけ早�
 msgid ""
 "<span name=\"scheduled_text\">emails are in queue and will be sent "
 "soon.</span>"
-msgstr "<span name=\"scheduled_text\">Eメールはキューに入っており、間もなく送信されます。</span>"
+msgstr "<span name=\"scheduled_text\">メールは送信予約済みで、まもなく送信されます。</span>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mass_mailing_form
@@ -639,7 +639,7 @@ msgstr "カラーブロック"
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_masonry_block_reversed_template
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_masonry_block_texts_image_texts_template
 msgid "A great title"
-msgstr "素晴らしいタイトル"
+msgstr "魅力的なタイトル"
 
 #. module: mass_mailing
 #: model:ir.model.constraint,message:mass_mailing.constraint_mailing_subscription_unique_contact_list
@@ -655,12 +655,12 @@ msgstr "以下のサンプル:"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_showcase
 msgid "A short description of this great feature."
-msgstr "この優れた特徴の簡単な説明。"
+msgstr "この優れた機能の簡単な説明です。"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_features
 msgid "A small explanation of this great feature, in clear words."
-msgstr "この素晴らしい特徴を簡単な言葉で説明しましょう。"
+msgstr "この優れた機能について、わかりやすく簡潔に説明します。"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_text_image
@@ -740,7 +740,7 @@ msgstr "要アクション"
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_list__active
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_mailing__active
 msgid "Active"
-msgstr "有効化"
+msgstr "アクティブ"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_ir_mail_server__active_mailing_ids
@@ -1348,13 +1348,13 @@ msgstr "キャンセル"
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_mailing__canceled
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_trace_report__canceled
 msgid "Canceled"
-msgstr "取消済"
+msgstr "キャンセル済"
 
 #. module: mass_mailing
 #: model:ir.model.fields.selection,name:mass_mailing.selection__mailing_trace__trace_status__cancel
 #: model_terms:ir.ui.view,arch_db:mass_mailing.mailing_trace_view_search
 msgid "Cancelled"
-msgstr "取消済"
+msgstr "キャンセル済"
 
 #. module: mass_mailing
 #: model:ir.model.fields,help:mass_mailing.field_mailing_mailing_test__email_to
@@ -2002,7 +2002,7 @@ msgstr "メールマーケティング"
 #: code:addons/mass_mailing/models/ir_mail_server.py:0
 msgid ""
 "Email Marketing uses it as its default mail server to send mass mailings"
-msgstr "Eメールマーケティングでは、デフォルトのメールサーバとして使用し、一括メールを送信します。"
+msgstr "メールマーケティングでは、デフォルトのメールサーバとして使用し、一括メールを送信します。"
 
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_mail_thread
@@ -2449,7 +2449,7 @@ msgstr "チェックした場合は、一部のメッセージに配信エラー
 msgid ""
 "If set, a mass mailing will be created so that you can track its results in "
 "the Email Marketing app."
-msgstr "設定すると、Eメールマーケティングアプリでその結果を追跡できるように、一括メールが作成されます。"
+msgstr "設定すると、メールマーケティングアプリでその結果を追跡できるように、一括メールが作成されます。"
 
 #. module: mass_mailing
 #: model:ir.model.fields,help:mass_mailing.field_mailing_contact__is_blacklisted
@@ -2516,7 +2516,7 @@ msgstr "以下で連絡先のインポート:"
 #. module: mass_mailing
 #: model:ir.model.fields.selection,name:mass_mailing.selection__mailing_mailing__state__in_queue
 msgid "In Queue"
-msgstr "キュー済"
+msgstr "送信予約済"
 
 #. module: mass_mailing
 #. odoo-javascript
@@ -2694,7 +2694,7 @@ msgstr "左テキスト"
 #. odoo-javascript
 #: code:addons/mass_mailing/static/src/js/tours/mass_mailing_tour.js:0
 msgid "Let's try the Email Marketing app."
-msgstr "Eメールマーケティングアプリを試してみましょう"
+msgstr "メールマーケティングアプリを試してみましょう"
 
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_link_tracker
@@ -2784,7 +2784,7 @@ msgstr "メールマーケティング: A/Bテスト"
 #. module: mass_mailing
 #: model:ir.actions.server,name:mass_mailing.ir_cron_mass_mailing_queue_ir_actions_server
 msgid "Mail Marketing: Process queue"
-msgstr "メールマーケティング: プロセスキュー"
+msgstr "メールマーケティング: 送信予約済みメッセージの処理"
 
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_mail_render_mixin
@@ -3564,7 +3564,7 @@ msgstr "ベスト版が判明した時点で、残りの受信者にベスト版
 msgid ""
 "Once you send these emails, they'll be making a grand entrance in all the "
 "inboxes, creating quite the buzz!"
-msgstr "こうしたメールを送信すると、受信トレイに素敵に表示され、大きな話題を呼ぶことができるでしょう。"
+msgstr "これらのメールを送信することで、受信者の関心を引き、良い反響が期待できます。"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.mailing_trace_view_search
@@ -4075,7 +4075,7 @@ msgstr "予定"
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_trace_report__scheduled_date
 msgid "Scheduled Date"
-msgstr "計画日"
+msgstr "予定日"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.mailing_trace_report_view_tree
@@ -4234,6 +4234,11 @@ msgstr "送信日"
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mass_mailing_test_form
 msgid "Send test"
 msgstr "送信テスト"
+
+#. module: mass_mailing
+#: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mass_mailing_form
+msgid "Send to all"
+msgstr "全員に送信"
 
 #. module: mass_mailing
 #: model:ir.model.fields.selection,name:mass_mailing.selection__mailing_mailing__state__sending
@@ -4652,7 +4657,7 @@ msgstr "選択された受信者がいません"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_features
 msgid "Third Feature"
-msgstr "特徴の三"
+msgstr "第3の特徴"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.ab_testing_description

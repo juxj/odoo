@@ -818,6 +818,7 @@ class Channel(models.Model):
                 ("author_id", "=", message.author_id.id),
                 ("model", "=", "slide.channel"),
                 ("subtype_id", "=", self.env.ref("mail.mt_comment").id),
+                ("rating_ids", "!=", False),
             ]
             if self.env["mail.message"].search_count(domain, limit=2) > 1:
                 raise ValidationError(_("Only a single review can be posted per course."))
@@ -1283,3 +1284,6 @@ class Channel(models.Model):
         if self.website_id:
             return super().open_website_url()
         return self.env['website'].get_client_action(f'/slides/{self.env["ir.http"]._slug(self)}')
+
+    def _mail_get_partner_fields(self, introspect_fields=False):
+        return []

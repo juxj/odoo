@@ -1712,6 +1712,17 @@ X[]
                     contentAfter: '<p>ab</p><p>[]<br></p><p>ef</p>',
                 });
             });
+            it('should not delete text on the next container', async () => {
+                await testEditor(BasicEditor, {
+                    contentBefore: unformat(`
+                        <p>keep<br>[delete</p>
+                        <p>delete<br>delete<br>]</p>
+                        <p>keep</p>
+                    `),
+                    stepFunction: deleteBackward,
+                    contentAfter: '<p>keep<br>[]keep</p>',
+                });
+            });
         });
     });
 
@@ -1899,7 +1910,7 @@ X[]
                         contentAfter: '<div><p>cd</p>x[]</div>',
                     });
                 });
-                it('should not break unbreakables', async () => {
+                it('should not break unbreakables (1)', async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">[]<br></div>` +
@@ -1911,6 +1922,8 @@ X[]
                             `<div class="oe_unbreakable">abc</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (2)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">[ab</div>` +
@@ -1923,6 +1936,8 @@ X[]
                             `<div class="oe_unbreakable">f1</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (3)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">a[b</div>` +
@@ -1935,6 +1950,8 @@ X[]
                             `<div class="oe_unbreakable">f2</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (4)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">3a[b</div>` +
@@ -1946,6 +1963,8 @@ X[]
                             `<div class="oe_unbreakable">3a[]</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (5)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">[ab</div>` +
@@ -1957,6 +1976,8 @@ X[]
                             `<div class="oe_unbreakable">[]<br></div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (6)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">[ab</div>` +
@@ -1976,6 +1997,8 @@ X[]
                             `<div class="oe_unbreakable">l5</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (7)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">a[b</div>` +
@@ -1995,6 +2018,8 @@ X[]
                             `<div class="oe_unbreakable">l6</div>` +
                             `</div>`,
                     });
+                });
+                it("should not break unbreakables (8)", async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: `<div class="oe_unbreakable">` +
                             `<div class="oe_unbreakable">7a[b</div>` +
@@ -2111,6 +2136,13 @@ X[]
                         contentBefore: `<p contenteditable="false">ab[]cdef</p>`,
                         stepFunction: deleteBackward,
                         contentAfter: `<p contenteditable="false">ab[]cdef</p>`,
+                    });
+                });
+                it('should delete only the button', async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: `<p>a<a class="btn">[]</a></p>`,
+                        stepFunction: deleteBackward,
+                        contentAfter: `<p>a[]</p>`,
                     });
                 });
             });
@@ -5851,7 +5883,12 @@ X[]
                                         </tr>
                                     </tbody>
                                 </table>`),
-                            stepFunction: async editor => editor.execCommand('applyColor', 'aquamarine', 'color'),
+                            stepFunction: async editor => {
+                                // Table selection happens on selectionchange
+                                // event which is fired in the next tick.
+                                await nextTick();
+                                editor.execCommand('applyColor', 'aquamarine', 'color');
+                            },
                             contentAfterEdit: unformat(`
                                 <p>
                                     a<font style="color: aquamarine;">[bc</font>
@@ -5997,7 +6034,12 @@ X[]
                                             '<td>ef</td>' +
                                         '</tr></tbody></table>' +
                                         '<p>a]bc</p>',
-                            stepFunction: async editor => editor.execCommand('applyColor', 'aquamarine', 'color'),
+                            stepFunction: async editor => {
+                                // Table selection happens on selectionchange
+                                // event which is fired in the next tick.
+                                await nextTick();
+                                editor.execCommand('applyColor', 'aquamarine', 'color');
+                            },
                             contentAfterEdit: unformat(`
                                 <p>
                                     a<font style="color: aquamarine;">[bc</font>
@@ -7813,6 +7855,11 @@ X[]
                         </div>
                     </div>
                     `),
+                    stepFunction: async (editor) => {
+                        // Table selection happens on selectionchange
+                        // event which is fired in the next tick.
+                        await nextTick();
+                    },
                     contentAfterEdit: unformat(`
                     <div data-oe-protected="true">
                         <div data-oe-protected="false">

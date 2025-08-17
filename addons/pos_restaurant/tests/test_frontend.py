@@ -6,6 +6,7 @@ from odoo.addons.point_of_sale.tests.common_setup_methods import setup_product_c
 from odoo.addons.point_of_sale.tests.common import archive_products
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
 from odoo import Command
+from unittest.mock import patch
 
 @odoo.tests.tagged('post_install', '-at_install')
 class TestFrontendCommon(TestPointOfSaleHttpCommon):
@@ -264,6 +265,9 @@ class TestFrontend(TestFrontendCommon):
         order_tips.sort()
         self.assertEqual(order_tips, [0.0, 0.4, 1.0, 1.0, 1.5])
 
+        order1 = self.env['pos.order'].search([('pos_reference', 'ilike', '%-0001')], limit=1, order='id desc')
+        self.assertEqual(order1.payment_ids.amount, 2.4)
+
         order4 = self.env['pos.order'].search([('pos_reference', 'ilike', '%-0004')], limit=1, order='id desc')
         self.assertEqual(order4.customer_count, 2)
 
@@ -295,9 +299,10 @@ class TestFrontend(TestFrontendCommon):
         self.assertTrue(self.pos_config.current_session_id.order_ids.last_order_preparation_change, "There should be a last order preparation change")
         self.assertTrue("Coca" in self.pos_config.current_session_id.order_ids.last_order_preparation_change, "The last order preparation change should contain 'Coca'")
 
-    def test_11_bill_screen_qrcode(self):
+    def test_11_bill_screen_qrcode_data(self):
         self.pos_config.write({'printer_ids': False})
         self.pos_config.company_id.point_of_sale_use_ticket_qr_code = True
+        self.pos_config.company_id.point_of_sale_ticket_portal_url_display_mode = 'qr_code_and_url'
         self.pos_config.with_user(self.pos_user).open_ui()
         self.start_pos_tour('BillScreenTour')
 
@@ -400,6 +405,42 @@ class TestFrontend(TestFrontendCommon):
         self.main_pos_config.with_user(self.pos_user).open_ui()
         self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'PreparationPrinterContent', login="pos_user")
 
+    def test_transfer_table_last_preparation_change(self):
+        """This test will check if the last preparation change is correctly transferred to the new table with 6 possible cases:
+            - Transfer sent product on table with same product sent
+            - Transfer sent product on table with same product not sent
+            - Transfer sent product on table without the same product
+            - Transfer not sent product on table with same product not sent
+            - Transfer not sent product on table with same product sent
+            - Transfer not sent product on table without the same product"""
+        self.env['pos.printer'].create({
+            'name': 'Printer',
+            'printer_type': 'epson_epos',
+            'epson_printer_ip': '0.0.0.0',
+            'product_categories_ids': [Command.set(self.env['pos.category'].search([]).ids)],
+        })
+
+        self.main_pos_config.write({
+            'is_order_printer' : True,
+            'printer_ids': [Command.set(self.env['pos.printer'].search([]).ids)],
+        })
+
+        self.product_test = self.env['product.product'].create({
+            'name': 'Product Test',
+            'available_in_pos': True,
+            'list_price': 10,
+            'pos_categ_ids': [(6, 0, [self.env['pos.category'].search([], limit=1).id])],
+            'taxes_id': False,
+        })
+
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange1', login="pos_user")
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange2', login="pos_user")
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange3', login="pos_user")
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange4', login="pos_user")
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange5', login="pos_user")
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'TableTransferPreparationChange6', login="pos_user")
+
     def test_combo_preparation_receipt(self):
         setup_product_combo_items(self)
         pos_printer = self.env['pos.printer'].create({
@@ -453,3 +494,45 @@ class TestFrontend(TestFrontendCommon):
 
         self.main_pos_config.with_user(self.pos_user).open_ui()
         self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'MultiPreparationPrinter', login="pos_user")
+
+    def test_user_on_residual_order(self):
+        self.pos_config.write({'printer_ids': False})
+        self.pos_config.with_user(self.pos_admin).open_ui()
+        self.start_pos_tour('LeaveResidualOrder', login="pos_admin")
+        self.start_pos_tour('FinishResidualOrder', login="pos_user")
+        orders = self.env['pos.order'].search([])
+        self.assertEqual(orders[0].user_id.id, self.pos_user.id, "Pos user not registered on order")
+        self.assertEqual(orders[1].user_id.id, self.pos_admin.id, "Pos admin not registered on order")
+
+    def test_15_pos_refund_qty(self):
+        self.pos_config.with_user(self.pos_user).open_ui()
+        self.start_pos_tour('RefundQtyTour')
+
+    def test_combo_preparation_receipt_layout(self):
+        setup_product_combo_items(self)
+        self.env['product.product'].search([('name', 'ilike', 'Combo')]).write({'pos_categ_ids': [(Command.set(self.env['pos.category'].search([], limit=1).ids))]})
+        self.env['pos.printer'].create({
+            'name': 'Printer',
+            'printer_type': 'epson_epos',
+            'epson_printer_ip': '0.0.0.0',
+            'product_categories_ids': [Command.set(self.env['pos.category'].search([]).ids)],
+        })
+        self.pos_config.write({
+            'is_order_printer': True,
+            'printer_ids': [Command.set(self.env['pos.printer'].search([]).ids)],
+        })
+        self.pos_config.with_user(self.pos_admin).open_ui()
+        self.start_tour(f"/pos/ui?config_id={self.pos_config.id}", 'test_combo_preparation_receipt_layout', login="pos_admin")
+
+    def test_synchronisation_of_orders(self):
+        """ Test order synchronization with order data using the notify_synchronisation method.
+            First, an ongoing order is created on the server, and verify its presence in the POS UI.
+            Then, the order is paid from the server, and confirm if the order state is updated correctly.
+        """
+        self.start_pos_tour("OrderSynchronisationTour")
+
+    def test_book_and_release_table(self):
+        self.pos_config.with_user(self.pos_user).open_ui()
+        self.start_pos_tour('test_book_and_release_table', login="pos_user")
+        order = self.env['pos.order'].search([], limit=1, order='id desc')
+        self.assertEqual(order.state, "cancel", "The order should be in cancel state after releasing the table")

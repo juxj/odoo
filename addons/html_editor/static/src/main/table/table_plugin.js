@@ -176,7 +176,9 @@ export class TablePlugin extends Plugin {
         const columnIndex = getColumnIndex(reference);
         const table = closestElement(reference, "table");
         const tableWidth = table.style.width && parseFloat(table.style.width);
-        const referenceColumn = table.querySelectorAll(`tr td:nth-of-type(${columnIndex + 1})`);
+        const referenceColumn = table.querySelectorAll(
+            `tr td:nth-of-type(${columnIndex + 1}), tr th:nth-of-type(${columnIndex + 1})`
+        );
         const referenceCellWidth = reference.style.width
             ? parseFloat(reference.style.width)
             : reference.clientWidth;
@@ -201,7 +203,7 @@ export class TablePlugin extends Plugin {
             }
         }
         referenceColumn.forEach((cell, rowIndex) => {
-            const newCell = this.document.createElement("td");
+            const newCell = this.document.createElement(cell.tagName);
             const baseContainer = this.dependencies.baseContainer.createBaseContainer();
             baseContainer.append(this.document.createElement("br"));
             newCell.append(baseContainer);
@@ -233,11 +235,11 @@ export class TablePlugin extends Plugin {
         if (referenceRowHeight) {
             newRow.style.height = referenceRowHeight + "px";
         }
-        const cells = reference.querySelectorAll("td");
+        const cells = reference.querySelectorAll("td, th");
         const referenceRowWidths = [...cells].map((cell) => cell.style.width);
         newRow.append(
-            ...Array.from(Array(cells.length)).map(() => {
-                const td = this.document.createElement("td");
+            ...Array.from(cells).map((cell) => {
+                const td = this.document.createElement(cell.tagName);
                 const baseContainer = this.dependencies.baseContainer.createBaseContainer();
                 baseContainer.append(this.document.createElement("br"));
                 td.append(baseContainer);
@@ -409,10 +411,11 @@ export class TablePlugin extends Plugin {
         }
 
         for (const td of selectedTds) {
-            // @todo @phoenix this replaces paragraphs by inline content. Is this intended?
-            td.replaceChildren(this.document.createElement("br"));
+            const baseContainer = this.dependencies.baseContainer.createBaseContainer();
+            baseContainer.appendChild(this.document.createElement("br"));
+            td.replaceChildren(baseContainer);
         }
-        this.dependencies.selection.setCursorStart(selectedTds[0]);
+        this.dependencies.selection.setCursorStart(selectedTds[0].firstChild);
     }
 
     /**
@@ -479,12 +482,12 @@ export class TablePlugin extends Plugin {
      */
     shiftCursorToTableCell(shiftIndex) {
         const sel = this.dependencies.selection.getEditableSelection();
-        const currentTd = closestElement(sel.anchorNode, "td");
+        const currentTd = closestElement(sel.anchorNode, "td, th");
         const closestTable = closestElement(currentTd, "table");
         if (!currentTd || !closestTable) {
             return false;
         }
-        const tds = [...closestTable.querySelectorAll("td")];
+        const tds = [...closestTable.querySelectorAll("td, th")];
         const cursorDestination = tds[tds.findIndex((td) => currentTd === td) + shiftIndex];
         if (!cursorDestination) {
             return false;
@@ -561,22 +564,22 @@ export class TablePlugin extends Plugin {
             .filter((node) => node.nodeName === "TABLE")
             .pop();
 
-        const traversedNodes = this.dependencies.selection.getTraversedNodes({ deep: true });
+        const targetedNodes = this.dependencies.selection.getTargetedNodes();
         if (startTd !== endTd && startTable === endTable) {
             if (!isProtected(startTable) && !isProtecting(startTable)) {
                 // The selection goes through at least two different cells ->
                 // select cells.
                 this.selectTableCells(selection);
             }
-        } else if (!traversedNodes.every((node) => closestElement(node.parentElement, "table"))) {
-            const traversedTables = new Set(
-                traversedNodes
+        } else if (!targetedNodes.every((node) => closestElement(node.parentElement, "table"))) {
+            const targetedTables = new Set(
+                targetedNodes
                     .map((node) => closestElement(node, "table"))
                     .filter((node) => node && !isProtected(node) && !isProtecting(node))
             );
-            for (const table of traversedTables) {
+            for (const table of targetedTables) {
                 // Don't apply several nested levels of selection.
-                if (!ancestors(table, this.editable).some((node) => traversedTables.has(node))) {
+                if (!ancestors(table, this.editable).some((node) => targetedTables.has(node))) {
                     table.classList.toggle("o_selected_table", true);
                     for (const td of [...table.querySelectorAll("td")].filter(
                         (td) => closestElement(td, "table") === table
@@ -601,6 +604,7 @@ export class TablePlugin extends Plugin {
     }
 
     onMouseup(ev) {
+        delete this._mouseMovePositionWhenAllContentsSelected;
         this._currentMouseState = ev.type;
         this.editable.removeEventListener("mousemove", this.onMousemove);
     }
@@ -636,22 +640,23 @@ export class TablePlugin extends Plugin {
             return;
         }
         const selection = this.dependencies.selection.getEditableSelection();
-        const docSelection = this.document.getSelection();
-        const range = docSelection.rangeCount && docSelection.getRangeAt(0);
         const startTd = closestElement(selection.startContainer, "td");
         const endTd = closestElement(selection.endContainer, "td");
         if (startTd && startTd === endTd && !isProtected(startTd) && !isProtecting(startTd)) {
-            const selectedNodes = this.dependencies.selection.getSelectedNodes();
+            const targetedNodes = this.dependencies.selection.getTargetedNodes();
             const cellContents = descendants(startTd);
+            /** @todo Test. Should probably use areNodeContentsFullySelected. */
             const areCellContentsFullySelected = cellContents
                 .filter((d) => !isBlock(d))
-                .every((child) => selectedNodes.includes(child));
+                .every((child) => targetedNodes.includes(child));
             if (areCellContentsFullySelected) {
                 const SENSITIVITY = 5;
-                const rangeRect = range.getBoundingClientRect();
+                if (!this._mouseMovePositionWhenAllContentsSelected) {
+                    this._mouseMovePositionWhenAllContentsSelected = [ev.clientX, ev.clientY];
+                }
                 const isMovingAwayFromSelection =
-                    ev.clientX > rangeRect.x + rangeRect.width + SENSITIVITY || // moving right
-                    ev.clientX < rangeRect.x - SENSITIVITY; // moving left
+                    Math.abs(ev.clientX - this._mouseMovePositionWhenAllContentsSelected[0]) >=
+                    SENSITIVITY;
                 if (isMovingAwayFromSelection) {
                     // A cell is fully selected and the mouse is moving away
                     // from the selection, within said cell -> select the cell.
@@ -736,14 +741,26 @@ export class TablePlugin extends Plugin {
             }
             for (const td of selectedTds) {
                 this.dependencies.color.colorElement(td, color, mode);
+                if (color) {
+                    td.style["color"] = getComputedStyle(td).color;
+                } else {
+                    td.style["color"] = "";
+                }
             }
         }
     }
 
+    /**
+     * @deprecated
+     */
     adjustTraversedNodes(traversedNodes) {
-        const modifiedTraversedNodes = [];
+        return this.adjustTargetedNodes(traversedNodes);
+    }
+
+    adjustTargetedNodes(targetedNodes) {
+        const modifiedTargetedNodes = [];
         const visitedTables = new Set();
-        for (const node of traversedNodes) {
+        for (const node of targetedNodes) {
             const selectedTable = closestElement(node, ".o_selected_table");
             if (selectedTable) {
                 if (visitedTables.has(selectedTable)) {
@@ -751,13 +768,13 @@ export class TablePlugin extends Plugin {
                 }
                 visitedTables.add(selectedTable);
                 for (const selectedTd of selectedTable.querySelectorAll(".o_selected_td")) {
-                    modifiedTraversedNodes.push(selectedTd, ...descendants(selectedTd));
+                    modifiedTargetedNodes.push(selectedTd, ...descendants(selectedTd));
                 }
             } else {
-                modifiedTraversedNodes.push(node);
+                modifiedTargetedNodes.push(node);
             }
         }
-        return modifiedTraversedNodes;
+        return modifiedTargetedNodes;
     }
 
     resetTableSelection() {

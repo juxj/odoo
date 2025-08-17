@@ -38,6 +38,34 @@ export function selectFloatingOrder(index) {
         },
     ];
 }
+
+export function checkFloatingOrderCount(expectedCount) {
+    return [
+        {
+            isActive: ["mobile"],
+            trigger: ".fa-caret-down",
+            run: "click",
+        },
+        {
+            content: `check there are ${expectedCount} floating order`,
+            trigger: ".list-container-items .btn",
+            run: () => {
+                const btns = document.querySelectorAll(".list-container-items .btn");
+                if (btns.length !== expectedCount) {
+                    throw new Error(
+                        `Expected ${expectedCount} floating order buttons, found ${btns.length}`
+                    );
+                }
+            },
+        },
+        {
+            isActive: ["mobile"],
+            trigger: ".modal-header .oi-arrow-left",
+            run: "click",
+        },
+    ];
+}
+
 /**
  * Generates a sequence of actions to click on a displayed product, with optional additional
  * checks based on specific needs such as the next quantity and the next price.
@@ -367,6 +395,18 @@ export function clickFiscalPosition(name, checkIsNeeded = false) {
 
     return [...step, { ...back(), isActive: ["mobile"] }];
 }
+export function checkFiscalPosition(name) {
+    return [
+        clickReview(),
+        ...clickControlButtonMore(),
+        {
+            content: `check fiscal position '${name}' is selected`,
+            trigger: `.o_fiscal_position_button:contains("${name}")`,
+            run: () => {},
+        },
+        Dialog.cancel(),
+    ];
+}
 export function closeWithCashAmount(val) {
     return [
         {
@@ -414,6 +454,30 @@ export function enterLastLotNumber(number) {
         },
         Dialog.confirm(),
     ];
+}
+
+export function enterLotNumbers(numbers) {
+    return numbers
+        .map((number) => [
+            {
+                content: "enter lot number",
+                trigger: ".list-line-input:last()",
+                run: "edit " + number,
+            },
+            {
+                content: "Press Enter",
+                trigger: ".list-line-input:last()",
+                run: "press Enter",
+            },
+        ])
+        .flat()
+        .concat([
+            {
+                content: "click validate lot number",
+                trigger: ".modal-content button:contains(Ok)",
+                run: "click",
+            },
+        ]);
 }
 
 export function isShown() {
@@ -647,6 +711,13 @@ export function finishOrder() {
 export function checkTaxAmount(amount) {
     return {
         trigger: `.tax:contains(${amount})`,
+    };
+}
+
+export function checkProductExtraPrice(productName, extraAmount) {
+    return {
+        content: `'${productName}' should have '${extraAmount}' extra price`,
+        trigger: `article.product:has(.product-name:contains("${productName}")):has(.price-extra:contains("${extraAmount}"))`,
     };
 }
 

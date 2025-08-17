@@ -985,3 +985,58 @@ class TestUnbuild(TestMrpCommon):
         self.assertEqual(len(unbuild_fns_move), 1)
         self.assertEqual(unbuild_fns_move.state, "done")
         self.assertEqual(unbuild_fns_move.quantity, 12)
+
+    def test_putaway_strategy_with_unbuild(self):
+        """
+        Test that the putaway strategy is correctly applied when unbuilding a product
+        """
+        # Create a putaway strategy for the component product
+        putaway_strategy = self.env["stock.putaway.rule"].create({
+            "location_in_id": self.stock_location.id,
+            "location_out_id": self.stock_location_14.id,
+            'product_id': self.bom_4.bom_line_ids.product_id.id,
+        })
+
+        # Create a MO for the finished product
+        mo = self.env['mrp.production'].create({
+            'product_id': self.bom_4.product_id.id,
+            'product_qty': 1.0,
+            'bom_id': self.bom_4.id,
+            'product_uom_id': self.bom_4.product_uom_id.id,
+        })
+        mo.action_confirm()
+
+        mo.qty_producing = 1.0
+        mo.move_raw_ids.write({'quantity': 1, 'picked': True})
+        mo.button_mark_done()
+
+        # Unbuild the MO and check that the putaway strategy is applied for the component product
+        unbuild_action = mo.button_unbuild()
+        unbuild_action['context']['default_product_qty'] = 1
+        unbuild_order = Form.from_action(self.env, unbuild_action).save()
+        unbuild_order.action_unbuild()
+
+        component_move_unbuild = unbuild_order.produce_line_ids.filtered(lambda m: m.product_id == self.bom_4.bom_line_ids.product_id)
+        self.assertEqual(component_move_unbuild.move_line_ids.location_dest_id, putaway_strategy.location_out_id)
+
+    def test_unbuild_consigned_comp(self):
+        """ Test that after unbuild, consigned quant still have the same owner as before the MO."""
+        consigned_partner = self.env['res.partner'].create({'name': 'consigned partner'})
+        mo, _, _, p1, _ = self.generate_mo(qty_final=1, qty_base_1=7)
+        self.assertEqual(len(mo), 1, 'MO should have been created')
+        self.env['stock.quant']._update_available_quantity(p1, self.stock_location, 3)
+        self.env['stock.quant']._update_available_quantity(p1, self.stock_location, 4, owner_id=consigned_partner)
+
+        mo.action_assign()
+        mo_form = Form(mo)
+        mo_form.qty_producing = 1
+        mo = mo_form.save()
+        mo.button_mark_done()
+        self.assertEqual(mo.state, 'done', "Production order should be in done state.")
+
+        unbuild_form = Form(self.env['mrp.unbuild'])
+        unbuild_form.mo_id = mo
+        unbuild_form.save().action_unbuild()
+
+        self.assertEqual(self.env['stock.quant']._get_available_quantity(p1, self.stock_location), 7)
+        self.assertEqual(self.env['stock.quant']._get_available_quantity(p1, self.stock_location, owner_id=consigned_partner), 4)

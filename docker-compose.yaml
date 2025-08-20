@@ -14,6 +14,7 @@ services:
       - ./custom-addons:/mnt/custom-addons               # 你的客制化模块
     environment:
       - HOST=db
+      - PORT=5432              # ← 新增
       - USER=odoo
       - PASSWORD=odoo
     command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=reload,xml,qweb,assets"]

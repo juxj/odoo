@@ -1,6 +1,8 @@
 services:
   odoo:
-    image: odoo:18.0
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: odoo
     depends_on:
       - db
@@ -9,16 +11,17 @@ services:
       - "8072:8072"
     volumes:
       - odoo-data:/var/lib/odoo
-      - ./config/odoo-docker.conf:/etc/odoo/odoo.conf:ro
-      - ./odoo:/usr/lib/python3/dist-packages/odoo
-      - ./addons:/mnt/odoo-addons
-      - ./custom-addons:/mnt/custom-addons
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - ../odoo:/usr/lib/python3/dist-packages/odoo
+      - ../addons:/mnt/odoo-addons
+      - ../custom-addons:/mnt/custom-addons
+      - .:/var/log/odoo
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
       - POSTGRES_DB=postgres
-    command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=reload,xml,qweb,assets"]
+    command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=all"]
     restart: unless-stopped
     networks:
       - odoo-network

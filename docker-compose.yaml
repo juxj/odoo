@@ -1,7 +1,7 @@
 services:
   odoo:
     image: odoo:18.0
-    container_name: odoo18_app
+    container_name: odoo
     depends_on: [db]
     ports:
       - "8069:8069"
@@ -21,7 +21,7 @@ services:
 
   db:
     image: postgres:16
-    container_name: odoo18_db
+    container_name: pg
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=odoo

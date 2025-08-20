@@ -8,7 +8,7 @@ services:
       - "8072:8072"
     volumes:
       - odoo-data:/var/lib/odoo
-      - ./config/odoo-docker.conf:/etc/odoo/odoo.conf:ro        # 你的配置在 config/
+      - ./config/odoo.conf:/etc/odoo/odoo.conf:ro        # 你的配置在 config/
       - ./odoo:/usr/lib/python3/dist-packages/odoo       # 用本地 Odoo 源码覆盖容器内 odoo 包
       - ./addons:/mnt/odoo-addons                        # 本地官方/社区 addons
       - ./custom-addons:/mnt/custom-addons               # 你的客制化模块

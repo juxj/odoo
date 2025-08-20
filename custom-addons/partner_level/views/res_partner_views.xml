@@ -1,0 +1,38 @@
+<odoo>
+  <!-- 表单：把 level_id 放在“工作职位(function)”字段后 -->
+  <record id="view_partner_form_level" model="ir.ui.view">
+    <field name="name">res.partner.form.level</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="priority" eval="120"/>
+    <field name="arch" type="xml">
+      <xpath expr="(//field[@name='function'])[1]" position="after">
+        <field name="level_id" options="{'no_create': False}"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- 列表：增加“用户等级”列（兼容 list/tree 标签） -->
+  <record id="view_partner_list_level" model="ir.ui.view">
+    <field name="name">res.partner.list.level</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="(//list|//tree)[1]" position="inside">
+        <field name="level_id"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- 搜索：按等级分组 -->
+  <record id="view_partner_search_level" model="ir.ui.view">
+    <field name="name">res.partner.search.level</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">
+        <filter name="group_level" string="按等级分组" context="{'group_by': 'level_id'}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

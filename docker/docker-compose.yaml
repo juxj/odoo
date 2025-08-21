@@ -3,7 +3,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: odoo
+    container_name: odoo-18
     depends_on:
       - db
     ports:
@@ -12,23 +12,26 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - ./odoo.conf:/etc/odoo/odoo.conf:ro
-      - ../odoo:/usr/lib/python3/dist-packages/odoo
+      # - ../odoo:/usr/lib/python3/dist-packages/odoo
       - ../addons:/mnt/odoo-addons
       - ../custom-addons:/mnt/custom-addons
-      - .:/var/log/odoo
+      - /var/log/odoo:/var/log/odoo
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
       - POSTGRES_DB=postgres
-    command: ["odoo", "-c", "/etc/odoo/odoo.conf", "--dev=all"]
+    command: >
+      sh -c "sleep 5 && 
+      odoo -c /etc/odoo/odoo.conf --init partner_level --without-demo=all --stop-after-init &&
+      odoo -c /etc/odoo/odoo.conf"
     restart: unless-stopped
     networks:
       - odoo-network
 
   db:
     image: postgres:16
-    container_name: pg
+    container_name: odoo-db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=odoo
@@ -37,7 +40,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     ports:
-      - "5432:5432"  # 可选：用于调试数据库连接
+      - "5433:5433"  # 可选：用于调试数据库连接
     restart: unless-stopped
     networks:
       - odoo-network

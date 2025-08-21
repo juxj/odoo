@@ -1,543 +1,130 @@
-2025-08-20 10:20:06,111 78098 INFO ? odoo: Odoo version 18.0 
-2025-08-20 10:20:06,111 78098 INFO ? odoo: Using configuration file at /Users/tju/Workspace/Projects/ongoing/odoo/config/odoo-standalone.conf 
-2025-08-20 10:20:06,111 78098 INFO ? odoo: addons paths: ['/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons', '/Users/tju/Library/Application Support/Odoo/addons/18.0', '/Users/tju/Workspace/Projects/ongoing/odoo/addons', '/Users/tju/Workspace/Projects/ongoing/odoo/custom-addons'] 
-2025-08-20 10:20:06,111 78098 INFO ? odoo: database: odoo@127.0.0.1:5432 
-2025-08-20 10:20:06,334 78098 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
-2025-08-20 10:20:06,334 78098 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
-2025-08-20 10:20:06,524 78098 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
-2025-08-20 10:20:06,546 78098 INFO odoo_cn odoo.modules.loading: loading 1 modules... 
-2025-08-20 10:20:06,552 78098 INFO odoo_cn odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
-2025-08-20 10:20:06,623 78098 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
-2025-08-20 10:20:07,729 78098 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 1.11s, 0 queries (+0 extra) 
-2025-08-20 10:20:08,021 78098 INFO odoo_cn odoo.modules.loading: Modules loaded. 
-2025-08-20 10:20:08,030 78098 INFO odoo_cn odoo.modules.registry: Registry loaded in 1.505s 
-2025-08-20 10:20:20,705 78098 INFO odoo_cn odoo.addons.base.models.ir_http: Generating routing map for key None 
-2025-08-20 10:20:20,755 78098 INFO odoo_cn odoo.addons.base.models.res_device: User 2 inserts device log (m2Zlk4ovTstzvRJk0nIkIM8epFP3F0KaSExAbdCMG5) 
-2025-08-20 10:20:20,797 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:20] "GET / HTTP/1.1" 303 - 13 0.023 0.075
-2025-08-20 10:20:23,884 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:23] "GET /odoo HTTP/1.1" 200 - 102 0.126 2.955
-2025-08-20 10:20:26,820 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9943b3b/web.assets_web.min.js (id:568) 
-2025-08-20 10:20:26,823 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Deleting attachments [562] (matching /web/assets/_______/web.assets_web.min.js) because it was replaced with /web/assets/9943b3b/web.assets_web.min.js 
-2025-08-20 10:20:26,899 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:26] "GET /web/assets/9943b3b/web.assets_web.min.js HTTP/1.1" 200 - 17 0.055 2.941
-2025-08-20 10:20:27,085 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 9 0.014 0.014
-2025-08-20 10:20:27,093 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /bus/websocket_worker_bundle?v=18.0-5 HTTP/1.1" 304 - 4 0.004 0.020
-2025-08-20 10:20:27,129 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /hr_attendance/attendance_user_data HTTP/1.1" 200 - 9 0.013 0.022
-2025-08-20 10:20:27,159 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /web/action/load HTTP/1.1" 200 - 6 0.018 0.024
-2025-08-20 10:20:27,172 78098 INFO ? werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /web/static/img/odoo-icon-512x512.png HTTP/1.1" 200 - 0 0.000 0.007
-2025-08-20 10:20:27,174 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 17 0.022 0.032
-2025-08-20 10:20:27,175 78098 INFO ? werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /mail/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.013
-2025-08-20 10:20:27,177 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /web/dataset/call_kw/mail.push.device/register_devices HTTP/1.1" 200 - 7 0.015 0.020
-2025-08-20 10:20:27,179 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.002 0.031
-2025-08-20 10:20:27,220 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /mail/data HTTP/1.1" 200 - 33 0.044 0.038
-2025-08-20 10:20:27,275 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /mail/data HTTP/1.1" 200 - 41 0.028 0.034
-2025-08-20 10:20:27,331 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:27] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.007 0.008
-2025-08-20 10:20:27,556 78098 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
-2025-08-20 10:20:28,857 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:28] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.009
-2025-08-20 10:20:32,019 78098 ERROR odoo_cn odoo.http: Exception during request handling. 
-Traceback (most recent call last):
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2554, in __call__
-    response = request._serve_db()
-               ^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2081, in _serve_db
-    return self._transactioning(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2144, in _transactioning
-    return service_model.retrying(func, env=self.env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/service/model.py", line 156, in retrying
-    result = func()
-             ^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2111, in _serve_ir_http
-    response = self.dispatcher.dispatch(rule.endpoint, args)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2272, in dispatch
-    return self.request.registry['ir.http']._dispatch(endpoint)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
-    result = endpoint(**request.params)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 754, in route_wrapper
-    result = endpoint(self, *args, **params_ok)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 69, in manager
-    return self._render_template()
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 32, in _render_template
-    d['insecure'] = odoo.tools.config.verify_admin_password('admin')
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/tools/config.py", line 823, in verify_admin_password
-    result, updated_hash = crypt_context.verify_and_update(password, stored_hash)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/context.py", line 2433, in verify_and_update
-    if not record.verify(secret, hash, **clean_kwds):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
-    self = cls.from_string(hash, **context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 68, in from_string
-    chk = ab64_decode(chk.encode("ascii"))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 207, in ab64_decode
-    return b64s_decode(data.replace(b".", b"+"))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 169, in b64s_decode
-    raise ValueError("invalid base64 input")
-ValueError: invalid base64 input
-2025-08-20 10:20:32,033 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:32] "GET /web/database/manager HTTP/1.1" 500 - 1 0.003 0.028
-2025-08-20 10:20:32,360 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:32] "GET /favicon.ico HTTP/1.1" 404 - 63 0.070 0.239
-2025-08-20 10:20:35,803 78098 ERROR odoo_cn odoo.http: Exception during request handling. 
-Traceback (most recent call last):
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2554, in __call__
-    response = request._serve_db()
-               ^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2081, in _serve_db
-    return self._transactioning(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2144, in _transactioning
-    return service_model.retrying(func, env=self.env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/service/model.py", line 156, in retrying
-    result = func()
-             ^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2111, in _serve_ir_http
-    response = self.dispatcher.dispatch(rule.endpoint, args)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2272, in dispatch
-    return self.request.registry['ir.http']._dispatch(endpoint)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
-    result = endpoint(**request.params)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 754, in route_wrapper
-    result = endpoint(self, *args, **params_ok)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 69, in manager
-    return self._render_template()
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 32, in _render_template
-    d['insecure'] = odoo.tools.config.verify_admin_password('admin')
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/tools/config.py", line 823, in verify_admin_password
-    result, updated_hash = crypt_context.verify_and_update(password, stored_hash)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/context.py", line 2433, in verify_and_update
-    if not record.verify(secret, hash, **clean_kwds):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
-    self = cls.from_string(hash, **context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 68, in from_string
-    chk = ab64_decode(chk.encode("ascii"))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 207, in ab64_decode
-    return b64s_decode(data.replace(b".", b"+"))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 169, in b64s_decode
-    raise ValueError("invalid base64 input")
-ValueError: invalid base64 input
-2025-08-20 10:20:35,807 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:35] "GET /web/database/manager HTTP/1.1" 500 - 1 0.002 0.013
-2025-08-20 10:20:40,957 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:40] "GET / HTTP/1.1" 303 - 1 0.003 0.008
-2025-08-20 10:20:41,058 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "GET /odoo HTTP/1.1" 200 - 19 0.036 0.058
-2025-08-20 10:20:41,166 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "GET /bus/websocket_worker_bundle?v=18.0-5 HTTP/1.1" 304 - 3 0.005 0.007
-2025-08-20 10:20:41,168 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 7 0.010 0.010
-2025-08-20 10:20:41,206 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /hr_attendance/attendance_user_data HTTP/1.1" 200 - 8 0.012 0.026
-2025-08-20 10:20:41,227 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 9 0.014 0.027
-2025-08-20 10:20:41,231 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /web/action/load HTTP/1.1" 200 - 6 0.019 0.023
-2025-08-20 10:20:41,231 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.004 0.030
-2025-08-20 10:20:41,232 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /web/dataset/call_kw/mail.push.device/register_devices HTTP/1.1" 200 - 6 0.014 0.027
-2025-08-20 10:20:41,259 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /mail/data HTTP/1.1" 200 - 19 0.037 0.032
-2025-08-20 10:20:41,389 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /mail/data HTTP/1.1" 200 - 34 0.023 0.091
-2025-08-20 10:20:41,445 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:41] "POST /mail/inbox/messages HTTP/1.1" 200 - 3 0.005 0.008
-2025-08-20 10:20:42,849 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:42] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.003 0.018
-2025-08-20 10:20:44,181 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:44] "POST /web/action/load HTTP/1.1" 200 - 9 0.020 0.029
-2025-08-20 10:20:45,366 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:45] "POST /web/dataset/call_kw/res.config.settings/get_views HTTP/1.1" 200 - 431 0.423 0.741
-2025-08-20 10:20:45,621 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:45] "POST /web/dataset/call_kw/res.config.settings/onchange HTTP/1.1" 200 - 209 0.085 0.149
-2025-08-20 10:20:45,704 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:45] "POST /base_setup/demo_active HTTP/1.1" 200 - 2 0.004 0.006
-2025-08-20 10:20:45,711 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:20:45] "POST /base_setup/data HTTP/1.1" 200 - 6 0.005 0.004
-2025-08-20 10:21:09,126 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 10:21:09,129 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 10:21:09,136 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.010s 
-2025-08-20 10:21:09,143 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,143 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.014s 
-2025-08-20 10:21:09,150 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 10:21:09,152 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,158 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 10:21:09,163 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 10:21:09,169 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.006s 
-2025-08-20 10:21:09,171 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Digest Emails' (17) starting 
-2025-08-20 10:21:09,174 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,178 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Digest Emails' (17) done in 0.007s 
-2025-08-20 10:21:09,179 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 10:21:09,182 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Digest Emails' (17) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,188 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Digest Emails' (17) completed 
-2025-08-20 10:21:09,195 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 10:21:09,201 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Send invoices automatically' (23) starting 
-2025-08-20 10:21:09,205 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.011s 
-2025-08-20 10:21:09,209 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,213 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Send invoices automatically' (23) done in 0.012s 
-2025-08-20 10:21:09,214 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 10:21:09,217 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Send invoices automatically' (23) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,223 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Send invoices automatically' (23) completed 
-2025-08-20 10:21:09,227 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Sales: Send pending emails' (25) starting 
-2025-08-20 10:21:09,237 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (27) starting 
-2025-08-20 10:21:09,237 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Sales: Send pending emails' (25) done in 0.010s 
-2025-08-20 10:21:09,243 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Sales: Send pending emails' (25) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,247 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (27) done in 0.010s 
-2025-08-20 10:21:09,248 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Sales: Send pending emails' (25) completed 
-2025-08-20 10:21:09,251 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (27) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,258 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (27) completed 
-2025-08-20 10:21:09,261 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Procurement: run scheduler' (28) starting 
-2025-08-20 10:21:09,274 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Purchase reminder' (29) starting 
-2025-08-20 10:21:09,287 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Purchase reminder' (29) done in 0.012s 
-2025-08-20 10:21:09,291 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Purchase reminder' (29) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,296 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Purchase reminder' (29) completed 
-2025-08-20 10:21:09,305 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 10:21:09,306 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Procurement: run scheduler' (28) done in 0.044s 
-2025-08-20 10:21:09,309 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Procurement: run scheduler' (28) processed 3 records, 0 records remaining 
-2025-08-20 10:21:09,311 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.006s 
-2025-08-20 10:21:09,314 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Procurement: run scheduler' (28) completed 
-2025-08-20 10:21:09,315 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,319 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 10:21:09,326 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event CRM: Generate Leads based on Rules' (31) starting 
-2025-08-20 10:21:09,330 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) starting 
-2025-08-20 10:21:09,334 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event CRM: Generate Leads based on Rules' (31) done in 0.007s 
-2025-08-20 10:21:09,337 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) done in 0.006s 
-2025-08-20 10:21:09,338 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event CRM: Generate Leads based on Rules' (31) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,341 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event CRM: Generate Leads based on Rules' (31) completed 
-2025-08-20 10:21:09,342 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,345 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) completed 
-2025-08-20 10:21:09,352 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) starting 
-2025-08-20 10:21:09,356 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 10:21:09,359 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) done in 0.007s 
-2025-08-20 10:21:09,362 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,364 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.007s 
-2025-08-20 10:21:09,366 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) completed 
-2025-08-20 10:21:09,368 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,372 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 10:21:09,376 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 10:21:09,380 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.003s 
-2025-08-20 10:21:09,383 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 10:21:09,386 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
-2025-08-20 10:21:22,156 78098 ERROR odoo_cn odoo.http: Exception during request handling. 
-Traceback (most recent call last):
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2554, in __call__
-    response = request._serve_db()
-               ^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2081, in _serve_db
-    return self._transactioning(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2144, in _transactioning
-    return service_model.retrying(func, env=self.env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/service/model.py", line 156, in retrying
-    result = func()
-             ^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2111, in _serve_ir_http
-    response = self.dispatcher.dispatch(rule.endpoint, args)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2272, in dispatch
-    return self.request.registry['ir.http']._dispatch(endpoint)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
-    result = endpoint(**request.params)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 754, in route_wrapper
-    result = endpoint(self, *args, **params_ok)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 69, in manager
-    return self._render_template()
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 32, in _render_template
-    d['insecure'] = odoo.tools.config.verify_admin_password('admin')
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/tools/config.py", line 823, in verify_admin_password
-    result, updated_hash = crypt_context.verify_and_update(password, stored_hash)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/context.py", line 2433, in verify_and_update
-    if not record.verify(secret, hash, **clean_kwds):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
-    self = cls.from_string(hash, **context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 68, in from_string
-    chk = ab64_decode(chk.encode("ascii"))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 207, in ab64_decode
-    return b64s_decode(data.replace(b".", b"+"))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 169, in b64s_decode
-    raise ValueError("invalid base64 input")
-ValueError: invalid base64 input
-2025-08-20 10:21:22,158 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:22] "GET /web/database/manager HTTP/1.1" 500 - 1 0.002 0.012
-2025-08-20 10:21:25,452 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:25] "GET /web/database/ HTTP/1.1" 404 - 8 0.012 0.045
-2025-08-20 10:21:25,485 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:25] "GET /logo.png?company=1 HTTP/1.1" 200 - 2 0.006 0.014
-2025-08-20 10:21:26,358 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b46e842/web.assets_frontend.min.css (id:569) 
-2025-08-20 10:21:26,358 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b46e842/web.assets_frontend.min.css (id:570) 
-2025-08-20 10:21:26,359 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Deleting attachments [563] (matching /web/assets/_______/web.assets_frontend.min.css) because it was replaced with /web/assets/b46e842/web.assets_frontend.min.css 
-2025-08-20 10:21:26,360 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Deleting attachments [563] (matching /web/assets/_______/web.assets_frontend.min.css) because it was replaced with /web/assets/b46e842/web.assets_frontend.min.css 
-2025-08-20 10:21:26,364 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:26] "GET /web/assets/b46e842/web.assets_frontend.min.css HTTP/1.1" 200 - 10 0.044 0.857
-2025-08-20 10:21:26,374 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:26] "GET /web_editor/shape/http_routing/404.svg?c2=o-color-2 HTTP/1.1" 200 - 11 0.058 0.849
-2025-08-20 10:21:26,381 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:26] "GET /web/assets/65edd36/web.assets_frontend_minimal.min.js HTTP/1.1" 200 - 3 0.002 0.007
-2025-08-20 10:21:26,381 78098 INFO ? werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:26] "GET /web/static/img/odoo_logo_tiny.png HTTP/1.1" 200 - 0 0.000 0.003
-2025-08-20 10:21:27,292 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4c61085/web.assets_frontend_lazy.min.js (id:571) 
-2025-08-20 10:21:27,293 78098 INFO odoo_cn odoo.addons.base.models.assetsbundle: Deleting attachments [564] (matching /web/assets/_______/web.assets_frontend_lazy.min.js) because it was replaced with /web/assets/4c61085/web.assets_frontend_lazy.min.js 
-2025-08-20 10:21:27,299 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:27] "GET /web/assets/4c61085/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 10 0.012 0.828
-2025-08-20 10:21:27,417 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:27] "GET /website/translations/96ad31a58558de3b4eba12b1b2a870cc34641d32 HTTP/1.1" 200 - 3 0.003 0.048
-2025-08-20 10:21:31,935 78098 ERROR odoo_cn odoo.http: Exception during request handling. 
-Traceback (most recent call last):
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2554, in __call__
-    response = request._serve_db()
-               ^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2081, in _serve_db
-    return self._transactioning(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2144, in _transactioning
-    return service_model.retrying(func, env=self.env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/service/model.py", line 156, in retrying
-    result = func()
-             ^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2111, in _serve_ir_http
-    response = self.dispatcher.dispatch(rule.endpoint, args)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2272, in dispatch
-    return self.request.registry['ir.http']._dispatch(endpoint)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
-    result = endpoint(**request.params)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 754, in route_wrapper
-    result = endpoint(self, *args, **params_ok)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 63, in selector
-    return self._render_template(manage=False)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 32, in _render_template
-    d['insecure'] = odoo.tools.config.verify_admin_password('admin')
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/tools/config.py", line 823, in verify_admin_password
-    result, updated_hash = crypt_context.verify_and_update(password, stored_hash)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/context.py", line 2433, in verify_and_update
-    if not record.verify(secret, hash, **clean_kwds):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
-    self = cls.from_string(hash, **context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 68, in from_string
-    chk = ab64_decode(chk.encode("ascii"))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 207, in ab64_decode
-    return b64s_decode(data.replace(b".", b"+"))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 169, in b64s_decode
-    raise ValueError("invalid base64 input")
-ValueError: invalid base64 input
-2025-08-20 10:21:31,939 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:31] "GET /web/database/selector HTTP/1.1" 500 - 1 0.001 0.014
-2025-08-20 10:21:39,473 78098 ERROR odoo_cn odoo.http: Exception during request handling. 
-Traceback (most recent call last):
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2554, in __call__
-    response = request._serve_db()
-               ^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2081, in _serve_db
-    return self._transactioning(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2144, in _transactioning
-    return service_model.retrying(func, env=self.env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/service/model.py", line 156, in retrying
-    result = func()
-             ^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2111, in _serve_ir_http
-    response = self.dispatcher.dispatch(rule.endpoint, args)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 2272, in dispatch
-    return self.request.registry['ir.http']._dispatch(endpoint)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
-    result = endpoint(**request.params)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/http.py", line 754, in route_wrapper
-    result = endpoint(self, *args, **params_ok)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 69, in manager
-    return self._render_template()
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/addons/web/controllers/database.py", line 32, in _render_template
-    d['insecure'] = odoo.tools.config.verify_admin_password('admin')
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/odoo/tools/config.py", line 823, in verify_admin_password
-    result, updated_hash = crypt_context.verify_and_update(password, stored_hash)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/context.py", line 2433, in verify_and_update
-    if not record.verify(secret, hash, **clean_kwds):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
-    self = cls.from_string(hash, **context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 68, in from_string
-    chk = ab64_decode(chk.encode("ascii"))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 207, in ab64_decode
-    return b64s_decode(data.replace(b".", b"+"))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tju/Workspace/Projects/ongoing/odoo/.venv/lib/python3.11/site-packages/passlib/utils/binary.py", line 169, in b64s_decode
-    raise ValueError("invalid base64 input")
-ValueError: invalid base64 input
-2025-08-20 10:21:39,477 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:21:39] "GET /web/database/manager HTTP/1.1" 500 - 1 0.004 0.020
-2025-08-20 10:31:19,692 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 10:31:19,701 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.008s 
-2025-08-20 10:31:19,705 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 10:31:19,712 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 10:57:39,321 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:57:39] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.003 0.020
-2025-08-20 10:57:39,358 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 10:57:39] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 2 0.009 0.012
-2025-08-20 11:15:55,494 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 11:15:55,498 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 11:15:55,504 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.010s 
-2025-08-20 11:15:55,507 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.009s 
-2025-08-20 11:15:55,510 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,513 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,522 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 11:15:55,525 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 11:15:55,534 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 11:15:55,539 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 11:15:55,542 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.007s 
-2025-08-20 11:15:55,545 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,549 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.009s 
-2025-08-20 11:15:55,550 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 11:15:55,552 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,557 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 11:15:55,564 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 11:15:55,571 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 11:15:55,572 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.008s 
-2025-08-20 11:15:55,576 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,577 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.006s 
-2025-08-20 11:15:55,584 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 11:15:55,584 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 11:15:55,589 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
-2025-08-20 11:26:37,933 78098 INFO odoo_cn odoo.addons.base.models.res_device: User 2 inserts device log (m2Zlk4ovTstzvRJk0nIkIM8epFP3F0KaSExAbdCMG5) 
-2025-08-20 11:26:37,949 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 11:26:37] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 2 0.010 0.028
-2025-08-20 11:26:37,982 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 11:26:37] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 2 0.006 0.011
-2025-08-20 11:39:55,558 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 11:39:55,570 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.012s 
-2025-08-20 11:39:55,576 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 11:39:55,596 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 12:04:20,312 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 12:04:20,322 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 12:04:20,327 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.015s 
-2025-08-20 12:04:20,333 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.010s 
-2025-08-20 12:04:20,334 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,339 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 12:04:20,341 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,353 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 12:04:20,357 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 12:04:20,360 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.006s 
-2025-08-20 12:04:20,364 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,370 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 12:04:20,375 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 12:04:20,387 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 12:04:20,390 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.015s 
-2025-08-20 12:04:20,394 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.007s 
-2025-08-20 12:04:20,395 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,400 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,400 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 12:04:20,405 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 12:04:20,413 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 12:04:20,417 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.004s 
-2025-08-20 12:04:20,420 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 12:04:20,425 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
-2025-08-20 12:27:27,640 78098 INFO odoo_cn odoo.addons.base.models.res_device: User 2 inserts device log (m2Zlk4ovTstzvRJk0nIkIM8epFP3F0KaSExAbdCMG5) 
-2025-08-20 12:27:27,652 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 12:27:27] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 2 0.013 0.027
-2025-08-20 12:27:27,691 78098 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 12:27:27] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 2 0.006 0.015
-2025-08-20 12:30:47,237 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 12:30:47,256 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.018s 
-2025-08-20 12:30:47,264 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 12:30:47,271 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 13:04:21,364 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 13:04:21,376 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 13:04:21,382 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.017s 
-2025-08-20 13:04:21,389 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.011s 
-2025-08-20 13:04:21,389 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,397 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,397 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 13:04:21,415 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 13:04:21,416 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 13:04:21,423 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.007s 
-2025-08-20 13:04:21,429 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,434 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 13:04:21,438 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 13:04:21,450 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 13:04:21,453 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.014s 
-2025-08-20 13:04:21,457 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,458 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.008s 
-2025-08-20 13:04:21,462 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 13:04:21,463 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,468 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 13:04:21,473 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 13:04:21,491 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.017s 
-2025-08-20 13:04:21,509 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 13:04:21,515 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
-2025-08-20 13:21:39,132 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) starting 
-2025-08-20 13:21:39,136 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) starting 
-2025-08-20 13:21:39,152 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) done in 0.015s 
-2025-08-20 13:21:39,155 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) done in 0.019s 
-2025-08-20 13:21:39,158 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) processed 0 records, 0 records remaining 
-2025-08-20 13:21:39,162 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) processed 0 records, 0 records remaining 
-2025-08-20 13:21:39,167 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Automatically check-out employees' (32) completed 
-2025-08-20 13:21:39,169 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Attendance: Detect Absences for employees' (33) completed 
-2025-08-20 13:27:40,314 78098 INFO odoo_cn odoo.addons.base.models.res_device: User 2 inserts device log (m2Zlk4ovTstzvRJk0nIkIM8epFP3F0KaSExAbdCMG5) 
-2025-08-20 13:30:48,461 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 13:30:48,477 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.015s 
-2025-08-20 13:30:48,485 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 13:30:48,495 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 14:04:22,465 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 14:04:22,468 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 14:04:22,479 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.011s 
-2025-08-20 14:04:22,480 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.011s 
-2025-08-20 14:04:22,485 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,485 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,494 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 14:04:22,503 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 14:04:22,507 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 14:04:22,513 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.006s 
-2025-08-20 14:04:22,517 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,521 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 14:04:22,524 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 14:04:22,537 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 14:04:22,537 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.014s 
-2025-08-20 14:04:22,542 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,545 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.008s 
-2025-08-20 14:04:22,547 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 14:04:22,548 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,554 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 14:04:22,560 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 14:04:22,563 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.004s 
-2025-08-20 14:04:22,567 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 14:04:22,571 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
-2025-08-20 14:30:49,351 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) starting 
-2025-08-20 14:30:49,370 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) done in 0.019s 
-2025-08-20 14:30:49,377 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) processed 0 records, 0 records remaining 
-2025-08-20 14:30:49,383 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Event: Mail Scheduler' (30) completed 
-2025-08-20 15:04:23,455 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
-2025-08-20 15:04:23,466 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) starting 
-2025-08-20 15:04:23,471 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.015s 
-2025-08-20 15:04:23,477 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) done in 0.010s 
-2025-08-20 15:04:23,477 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,483 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
-2025-08-20 15:04:23,484 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,498 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) starting 
-2025-08-20 15:04:23,501 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (15) completed 
-2025-08-20 15:04:23,504 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) done in 0.006s 
-2025-08-20 15:04:23,508 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,513 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (16) completed 
-2025-08-20 15:04:23,521 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) starting 
-2025-08-20 15:04:23,527 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
-2025-08-20 15:04:23,535 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.007s 
-2025-08-20 15:04:23,538 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) done in 0.017s 
-2025-08-20 15:04:23,539 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,543 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,543 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
-2025-08-20 15:04:23,548 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'CRM: enrich leads (IAP)' (20) completed 
-2025-08-20 15:04:23,555 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) starting 
-2025-08-20 15:04:23,558 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) done in 0.003s 
-2025-08-20 15:04:23,561 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) processed 0 records, 0 records remaining 
-2025-08-20 15:04:23,565 78098 INFO odoo_cn odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (14) completed 
+2025-08-20 16:49:32,535 40709 INFO ? odoo: Odoo version 18.0 
+2025-08-20 16:49:32,536 40709 INFO ? odoo: Using configuration file at /Users/tju/Workspace/Projects/ongoing/odoo/odoo.conf 
+2025-08-20 16:49:32,536 40709 INFO ? odoo: addons paths: ['/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons', '/Users/tju/Library/Application Support/Odoo/addons/18.0', '/Users/tju/Workspace/Projects/ongoing/odoo/addons', '/Users/tju/Workspace/Projects/ongoing/odoo/custom-addons'] 
+2025-08-20 16:49:32,536 40709 INFO ? odoo: database: odoo@127.0.0.1:5432 
+2025-08-20 16:49:32,648 40709 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-08-20 16:49:32,648 40709 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2025-08-20 16:49:32,761 40709 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-08-20 16:49:32,784 40709 INFO odoo_cn odoo.modules.loading: loading 1 modules... 
+2025-08-20 16:49:32,788 40709 INFO odoo_cn odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:49:32,801 40709 INFO odoo_cn odoo.modules.loading: updating modules list 
+2025-08-20 16:49:32,803 40709 INFO odoo_cn odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-08-20 16:49:33,779 40709 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:49:33,779 40709 INFO odoo_cn odoo.modules.loading: Loading module partner_level (2/102) 
+2025-08-20 16:49:33,814 40709 INFO odoo_cn odoo.modules.registry: module partner_level: creating or updating database tables 
+2025-08-20 16:49:33,920 40709 INFO odoo_cn odoo.modules.loading: loading partner_level/security/ir.model.access.csv 
+2025-08-20 16:49:34,119 40709 INFO odoo_cn odoo.modules.loading: loading partner_level/views/res_partner_level_views.xml 
+2025-08-20 16:49:34,143 40709 INFO odoo_cn odoo.modules.loading: loading partner_level/views/res_partner_views.xml 
+2025-08-20 16:49:34,164 40709 INFO odoo_cn odoo.modules.loading: loading partner_level/data/partner_level_data.xml 
+2025-08-20 16:49:34,172 40709 INFO odoo_cn odoo.addons.base.models.ir_module: module partner_level: no translation for language zh_CN 
+2025-08-20 16:49:34,182 40709 INFO odoo_cn odoo.modules.loading: Module partner_level loaded in 0.40s, 171 queries (+171 other) 
+2025-08-20 16:49:34,680 40709 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.90s, 171 queries (+171 extra) 
+2025-08-20 16:49:34,686 40709 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:49:34,687 40709 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:49:34,687 40709 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:49:34,688 40709 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:49:34,688 40709 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:49:34,689 40709 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:49:34,889 40709 ERROR odoo_cn odoo.modules.loading: Some modules have inconsistent states, some dependencies may be missing: ['partner-level'] 
+2025-08-20 16:49:35,067 40709 INFO odoo_cn odoo.modules.registry: verifying fields for every extended model 
+2025-08-20 16:49:35,584 40709 INFO odoo_cn odoo.modules.loading: Modules loaded. 
+2025-08-20 16:49:35,595 40709 INFO odoo_cn odoo.modules.registry: Registry changed, signaling through the database 
+2025-08-20 16:49:35,596 40709 INFO odoo_cn odoo.modules.registry: Registry loaded in 2.835s 
+2025-08-20 16:49:53,943 40709 INFO odoo_cn odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-08-20 16:49:54,030 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:54] "GET / HTTP/1.1" 303 - 7 0.012 0.082
+2025-08-20 16:49:54,044 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:54] "GET /odoo HTTP/1.1" 303 - 4 0.004 0.004
+2025-08-20 16:49:54,292 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:54] "GET /web/login?redirect=%2Fodoo%3F HTTP/1.1" 200 - 58 0.039 0.206
+2025-08-20 16:49:54,339 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:54] "GET /web/binary/company_logo HTTP/1.1" 304 - 5 0.008 0.025
+2025-08-20 16:49:58,222 40709 INFO odoo_cn odoo.addons.base.models.res_users: Login failed for db:odoo_cn login:xju070@gmail.com from 127.0.0.1 
+2025-08-20 16:49:58,355 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:58] "POST /web/login HTTP/1.1" 200 - 11 0.025 0.369
+2025-08-20 16:49:58,378 40709 INFO odoo_cn werkzeug: 127.0.0.1 - - [20/Aug/2025 16:49:58] "GET /web/binary/company_logo HTTP/1.1" 304 - 5 0.005 0.007
+2025-08-20 16:50:35,622 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:50:36,632 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:51:35,638 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:51:37,658 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:52:35,653 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:52:38,686 40709 WARNING odoo_cn odoo.addons.base.models.ir_cron: Skipping database odoo_cn because of modules to install/upgrade/remove. 
+2025-08-20 16:52:54,566 40709 INFO odoo_cn odoo.service.server: Initiating shutdown 
+2025-08-20 16:52:54,567 40709 INFO odoo_cn odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-08-20 16:52:54,747 40709 INFO odoo_cn odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 4 connections  
+2025-08-20 16:52:59,006 43439 INFO ? odoo: Odoo version 18.0 
+2025-08-20 16:52:59,006 43439 INFO ? odoo: Using configuration file at /Users/tju/Workspace/Projects/ongoing/odoo/odoo.conf 
+2025-08-20 16:52:59,006 43439 INFO ? odoo: addons paths: ['/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons', '/Users/tju/Library/Application Support/Odoo/addons/18.0', '/Users/tju/Workspace/Projects/ongoing/odoo/addons', '/Users/tju/Workspace/Projects/ongoing/odoo/custom-addons'] 
+2025-08-20 16:52:59,006 43439 INFO ? odoo: database: odoo@127.0.0.1:5432 
+2025-08-20 16:52:59,119 43439 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-08-20 16:52:59,119 43439 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2025-08-20 16:52:59,227 43439 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-08-20 16:52:59,253 43439 INFO odoo_cn odoo.modules.loading: loading 1 modules... 
+2025-08-20 16:52:59,257 43439 INFO odoo_cn odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:52:59,270 43439 INFO odoo_cn odoo.modules.loading: updating modules list 
+2025-08-20 16:52:59,272 43439 INFO odoo_cn odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-08-20 16:53:00,165 43439 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:53:00,672 43439 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.51s, 0 queries (+0 extra) 
+2025-08-20 16:53:00,678 43439 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:53:00,679 43439 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:53:00,679 43439 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:53:00,878 43439 ERROR odoo_cn odoo.modules.loading: Some modules have inconsistent states, some dependencies may be missing: ['partner-level'] 
+2025-08-20 16:53:01,386 43439 INFO odoo_cn odoo.modules.loading: Modules loaded. 
+2025-08-20 16:53:01,396 43439 INFO odoo_cn odoo.modules.registry: Registry changed, signaling through the database 
+2025-08-20 16:53:01,397 43439 INFO odoo_cn odoo.modules.registry: Registry loaded in 2.169s 
+2025-08-20 16:53:07,185 43439 INFO odoo_cn odoo.service.server: Initiating shutdown 
+2025-08-20 16:53:07,185 43439 INFO odoo_cn odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-08-20 16:53:07,255 43439 INFO odoo_cn odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  
+2025-08-20 16:53:28,571 43933 INFO ? odoo: Odoo version 18.0 
+2025-08-20 16:53:28,571 43933 INFO ? odoo: Using configuration file at /Users/tju/Workspace/Projects/ongoing/odoo/odoo.conf 
+2025-08-20 16:53:28,571 43933 INFO ? odoo: addons paths: ['/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons', '/Users/tju/Library/Application Support/Odoo/addons/18.0', '/Users/tju/Workspace/Projects/ongoing/odoo/addons', '/Users/tju/Workspace/Projects/ongoing/odoo/custom-addons'] 
+2025-08-20 16:53:28,571 43933 INFO ? odoo: database: odoo@127.0.0.1:5432 
+2025-08-20 16:53:28,671 43933 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-08-20 16:53:28,671 43933 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2025-08-20 16:53:28,758 43933 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-08-20 16:53:28,783 43933 INFO odoo_cn odoo.modules.loading: loading 1 modules... 
+2025-08-20 16:53:28,787 43933 INFO odoo_cn odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:53:28,801 43933 INFO odoo_cn odoo.modules.loading: updating modules list 
+2025-08-20 16:53:28,804 43933 INFO odoo_cn odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-08-20 16:53:29,642 43933 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:53:30,026 43933 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.38s, 0 queries (+0 extra) 
+2025-08-20 16:53:30,029 43933 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:53:30,030 43933 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:53:30,030 43933 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:53:30,237 43933 ERROR odoo_cn odoo.modules.loading: Some modules have inconsistent states, some dependencies may be missing: ['partner-level'] 
+2025-08-20 16:53:30,754 43933 INFO odoo_cn odoo.modules.loading: Modules loaded. 
+2025-08-20 16:53:30,766 43933 INFO odoo_cn odoo.modules.registry: Registry changed, signaling through the database 
+2025-08-20 16:53:30,768 43933 INFO odoo_cn odoo.modules.registry: Registry loaded in 2.009s 
+2025-08-20 16:53:54,758 43933 INFO odoo_cn odoo.service.server: Initiating shutdown 
+2025-08-20 16:53:54,759 43933 INFO odoo_cn odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-08-20 16:53:54,820 43933 INFO odoo_cn odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  
+2025-08-20 16:54:42,418 45161 INFO ? odoo: Odoo version 18.0 
+2025-08-20 16:54:42,418 45161 INFO ? odoo: Using configuration file at /Users/tju/Workspace/Projects/ongoing/odoo/odoo.conf 
+2025-08-20 16:54:42,418 45161 INFO ? odoo: addons paths: ['/Users/tju/Workspace/Projects/ongoing/odoo/odoo/addons', '/Users/tju/Library/Application Support/Odoo/addons/18.0', '/Users/tju/Workspace/Projects/ongoing/odoo/addons', '/Users/tju/Workspace/Projects/ongoing/odoo/custom-addons'] 
+2025-08-20 16:54:42,418 45161 INFO ? odoo: database: odoo@127.0.0.1:5432 
+2025-08-20 16:54:42,518 45161 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-08-20 16:54:42,518 45161 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2025-08-20 16:54:42,606 45161 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-08-20 16:54:42,631 45161 INFO odoo_cn odoo.modules.loading: loading 1 modules... 
+2025-08-20 16:54:42,634 45161 INFO odoo_cn odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:54:42,647 45161 INFO odoo_cn odoo.modules.loading: updating modules list 
+2025-08-20 16:54:42,650 45161 INFO odoo_cn odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-08-20 16:54:43,534 45161 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:54:43,534 45161 INFO odoo_cn odoo.modules.loading: Loading module partner_level (2/102) 
+2025-08-20 16:54:43,566 45161 INFO odoo_cn odoo.modules.registry: module partner_level: creating or updating database tables 
+2025-08-20 16:54:43,645 45161 INFO odoo_cn odoo.modules.loading: loading partner_level/security/ir.model.access.csv 
+2025-08-20 16:54:43,847 45161 INFO odoo_cn odoo.modules.loading: loading partner_level/views/res_partner_level_views.xml 
+2025-08-20 16:54:43,870 45161 INFO odoo_cn odoo.modules.loading: loading partner_level/views/res_partner_views.xml 
+2025-08-20 16:54:43,893 45161 INFO odoo_cn odoo.modules.loading: loading partner_level/data/partner_level_data.xml 
+2025-08-20 16:54:43,900 45161 INFO odoo_cn odoo.addons.base.models.ir_module: module partner_level: no translation for language zh_CN 
+2025-08-20 16:54:43,910 45161 INFO odoo_cn odoo.modules.loading: Module partner_level loaded in 0.38s, 171 queries (+171 other) 
+2025-08-20 16:54:44,287 45161 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.75s, 171 queries (+171 extra) 
+2025-08-20 16:54:44,294 45161 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:54:44,295 45161 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:54:44,295 45161 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:54:44,295 45161 WARNING odoo_cn odoo.modules.graph: module partner-level: not installable, skipped 
+2025-08-20 16:54:44,296 45161 INFO odoo_cn odoo.modules.loading: loading 102 modules... 
+2025-08-20 16:54:44,296 45161 INFO odoo_cn odoo.modules.loading: 102 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-08-20 16:54:44,504 45161 ERROR odoo_cn odoo.modules.loading: Some modules have inconsistent states, some dependencies may be missing: ['partner-level'] 
+2025-08-20 16:54:44,709 45161 INFO odoo_cn odoo.modules.registry: verifying fields for every extended model 
+2025-08-20 16:54:45,282 45161 INFO odoo_cn odoo.modules.loading: Modules loaded. 
+2025-08-20 16:54:45,286 45161 INFO odoo_cn odoo.modules.registry: Registry changed, signaling through the database 
+2025-08-20 16:54:45,287 45161 INFO odoo_cn odoo.modules.registry: Registry loaded in 2.680s 
+2025-08-20 16:54:56,011 45161 INFO odoo_cn odoo.service.server: Initiating shutdown 
+2025-08-20 16:54:56,011 45161 INFO odoo_cn odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-08-20 16:54:56,140 45161 INFO odoo_cn odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  

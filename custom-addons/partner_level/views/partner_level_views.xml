@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Partner Level Form View -->
+        <record id="view_partner_level_form" model="ir.ui.view">
+            <field name="name">partner.level.form</field>
+            <field name="model">partner.level</field>
+            <field name="arch" type="xml">
+                <form string="Partner Level">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_partners" 
+                                    type="object" 
+                                    class="oe_stat_button" 
+                                    icon="fa-users"
+                                    invisible="partner_count == 0">
+                                <field name="partner_count" widget="statinfo" 
+                                       string="Partners"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Archived" 
+                                bg_color="text-bg-danger" 
+                                invisible="active"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" placeholder="e.g. VIP, Premium, Standard"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="rank"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="color" widget="color_picker"/>
+                            </group>
+                        </group>
+                        <group string="Description">
+                            <field name="description" nolabel="1" placeholder="Description of this level..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Partner Level List View -->
+        <record id="view_partner_level_tree" model="ir.ui.view">
+            <field name="name">partner.level.list</field>
+            <field name="model">partner.level</field>
+            <field name="arch" type="xml">
+                <list string="Partner Levels" default_order="rank">
+                    <field name="rank"/>
+                    <field name="name"/>
+                    <field name="partner_count" string="Partners"/>
+                    <field name="active"/>
+                    <field name="color" widget="color"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Partner Level Kanban View -->
+        <record id="view_partner_level_kanban" model="ir.ui.view">
+            <field name="name">partner.level.kanban</field>
+            <field name="model">partner.level</field>
+            <field name="arch" type="xml">
+                <kanban string="Partner Levels">
+                    <field name="name"/>
+                    <field name="rank"/>
+                    <field name="color"/>
+                    <field name="partner_count"/>
+                    <field name="active"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><field name="name"/></div>
+                                        <div class="o_secondary">
+                                            <i class="fa fa-trophy" title="Rank"/> <field name="rank"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <div class="o_kanban_card_manage_pane">
+                                        <a type="edit">Edit</a>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_card_footer">
+                                    <div class="o_kanban_counter_side">
+                                        <b><field name="partner_count"/> Partners</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Partner Level Action -->
+        <record id="action_partner_level" model="ir.actions.act_window">
+            <field name="name">Partner Levels</field>
+            <field name="res_model">partner.level</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first partner level
+                </p>
+                <p>
+                    Partner levels help you categorize your contacts based on their importance or business relationship.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_partner_level_config"
+                  name="Partner Levels"
+                  parent="contacts.res_partner_menu_config"
+                  action="action_partner_level"
+                  sequence="10"/>
+        
+    </data>
+</odoo>

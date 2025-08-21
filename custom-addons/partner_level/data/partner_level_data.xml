@@ -1,22 +1,28 @@
-<odoo noupdate="1">
-  <record id="partner_level_basic" model="res.partner.level">
-    <field name="code">BASIC</field>
-    <field name="name">基础用户</field>
-    <field name="comments">普通级别</field>
-  </record>
-  <record id="partner_level_silver" model="res.partner.level">
-    <field name="code">SILVER</field>
-    <field name="name">银卡用户</field>
-    <field name="comments">享受部分优惠</field>
-  </record>
-  <record id="partner_level_gold" model="res.partner.level">
-    <field name="code">GOLD</field>
-    <field name="name">金卡用户</field>
-    <field name="comments">享受更多优惠</field>
-  </record>
-  <record id="partner_level_plat" model="res.partner.level">
-    <field name="code">PLAT</field>
-    <field name="name">铂金用户</field>
-    <field name="comments">最高等级</field>
-  </record>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- Default Partner Levels -->
+    <record id="level_bronze" model="partner.level">
+      <field name="name">青铜</field>
+      <field name="rank">1</field>
+      <field name="color">1</field>
+      <field name="description">青铜级别客户</field>
+    </record>
+
+    <record id="level_gold" model="partner.level">
+      <field name="name">黄金</field>
+      <field name="rank">2</field>
+      <field name="color">3</field>
+      <field name="description">黄金级别客户</field>
+    </record>
+
+    <record id="level_diamond" model="partner.level">
+      <field name="name">钻石</field>
+      <field name="rank">3</field>
+      <field name="color">5</field>
+      <field name="description">钻石级别客户</field>
+    </record>
+
+  </data>
 </odoo>

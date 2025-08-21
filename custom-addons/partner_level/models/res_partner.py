@@ -1,11 +1,12 @@
-from odoo import fields, models
+from odoo import models, fields
+
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    level_id = fields.Many2one(
-        "res.partner.level",
-        string="用户等级",
-        help="选择该联系人的用户等级",
-        index=True,
+    partner_level_id = fields.Many2one(
+        "partner.level", string="Partner Level", help="Partner level classification"
+    )
+    partner_level_rank = fields.Integer(
+        string="Level Rank", related="partner_level_id.rank", store=True, readonly=True
     )

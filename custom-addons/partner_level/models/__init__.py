@@ -1,2 +1,2 @@
-from . import res_partner_level
+from . import partner_level
 from . import res_partner

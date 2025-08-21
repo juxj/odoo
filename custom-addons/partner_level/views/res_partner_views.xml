@@ -1,38 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- 表单：把 level_id 放在“工作职位(function)”字段后 -->
-  <record id="view_partner_form_level" model="ir.ui.view">
-    <field name="name">res.partner.form.level</field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="base.view_partner_form"/>
-    <field name="priority" eval="120"/>
-    <field name="arch" type="xml">
-      <xpath expr="(//field[@name='function'])[1]" position="after">
-        <field name="level_id" options="{'no_create': False}"/>
-      </xpath>
-    </field>
-  </record>
+  <data>
 
-  <!-- 列表：增加“用户等级”列（兼容 list/tree 标签） -->
-  <record id="view_partner_list_level" model="ir.ui.view">
-    <field name="name">res.partner.list.level</field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="base.view_partner_tree"/>
-    <field name="arch" type="xml">
-      <xpath expr="(//list|//tree)[1]" position="inside">
-        <field name="level_id"/>
-      </xpath>
-    </field>
-  </record>
+    <!-- Inherit Partner Form View -->
+    <record id="view_partner_form_level" model="ir.ui.view">
+      <field name="name">res.partner.form.level</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+          <field name="partner_level_id"
+            widget="selection"
+            options="{'no_create': True, 'no_open': True}" />
+        </xpath>
+      </field>
+    </record>
 
-  <!-- 搜索：按等级分组 -->
-  <record id="view_partner_search_level" model="ir.ui.view">
-    <field name="name">res.partner.search.level</field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="base.view_res_partner_filter"/>
-    <field name="arch" type="xml">
-      <xpath expr="//search" position="inside">
-        <filter name="group_level" string="按等级分组" context="{'group_by': 'level_id'}"/>
-      </xpath>
-    </field>
-  </record>
+    <!-- Inherit Partner List View -->
+    <record id="view_partner_tree_level" model="ir.ui.view">
+      <field name="name">res.partner.list.level</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree" />
+      <field name="arch" type="xml">
+        <xpath expr="//list" position="inside">
+          <field name="partner_level_id" optional="show" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Partner Search View with Level Filter -->
+    <record id="view_res_partner_filter_level" model="ir.ui.view">
+      <field name="name">res.partner.search.level</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter" />
+      <field name="arch" type="xml">
+        <xpath expr="//filter[@name='inactive']" position="before">
+          <separator />
+          <filter string="Bronze Level" name="bronze_level"
+            domain="[('partner_level_id.rank', '=', 1)]" />
+          <filter string="Gold Level" name="gold_level"
+            domain="[('partner_level_id.rank', '=', 2)]" />
+          <filter string="Diamond Level" name="diamond_level"
+            domain="[('partner_level_id.rank', '=', 3)]" />
+          <separator />
+        </xpath>
+        <xpath expr="//group[@expand='0']" position="inside">
+          <filter string="Partner Level" name="group_by_level"
+            context="{'group_by': 'partner_level_id'}" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Partner Kanban View with Level -->
+    <record id="view_partner_kanban_level" model="ir.ui.view">
+      <field name="name">res.partner.kanban.level</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.res_partner_kanban_view" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+          <field name="partner_level_id" />
+        </xpath>
+      </field>
+    </record>
+
+  </data>
 </odoo>

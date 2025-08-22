@@ -2,3 +2,7 @@
 	path = external-addons/storage
 	url = https://github.com/OCA/storage.git
 	branch = 18.0
+[submodule "external-addons/server-env"]
+	path = external-addons/server-env
+	url = https://github.com/OCA/server-env.git
+	branch = 18.0

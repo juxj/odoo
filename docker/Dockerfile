@@ -1,29 +1,44 @@
 FROM odoo:18.0
 
-# 切换到 root 用户安装字体
+# Switch to root user to install packages
 USER root
 
-# 直接安装字体和必要包（使用原始官方源，最稳定）
+RUN apt-get update && apt-get install -y --no-install-recommends python3-packaging \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# Install OS packages and create directories
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-liberation \
     fonts-dejavu-core \
     fonts-noto \
+    vim \
+    net-tools \
     curl \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /var/log/odoo \
     && chown -R odoo:odoo /var/log/odoo
 
-# 复制初始化脚本
+
+RUN pip3 install --no-cache-dir --break-system-packages \
+    "odoo-addon-component==18.*" \
+    "odoo-addon-storage-backend==18.*" \
+    "odoo-addon-storage-backend-s3==18.*" \
+    "odoo-addon-fs-storage==18.*" \
+    "odoo-addon-fs-attachment==18.*" \
+    "s3fs>=2024.5.0"
+
+# Copy initialization script
 COPY init-odoo.sh /usr/local/bin/init-odoo.sh
 RUN chmod +x /usr/local/bin/init-odoo.sh
 
-# 切换回 odoo 用户
+# Switch back to the odoo user
 USER odoo
 
-# 设置工作目录
+# Set the working directory
 WORKDIR /usr/lib/python3/dist-packages/odoo
 
-# 默认命令
-# CMD ["/usr/local/bin/init-odoo.sh"]
+# Default command
+CMD ["/usr/local/bin/init-odoo.sh"]

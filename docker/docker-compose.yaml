@@ -5,32 +5,29 @@ services:
       dockerfile: Dockerfile
     container_name: odoo-18
     depends_on:
-      db:
-        condition: service_healthy
-      minio:
-        condition: service_started
+      - db
     ports:
       - "8069:8069"
       - "8072:8072"
     volumes:
-      - odoo-data:/var/lib/odoo
-      - ./odoo.conf:/etc/odoo/odoo.conf:ro
-      # - ../odoo:/usr/lib/python3/dist-packages/odoo
+      - ../odoo:/usr/lib/python3/dist-packages/odoo
       - ../addons:/mnt/odoo-addons
       - ../custom-addons:/mnt/custom-addons
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - odoo-data:/var/lib/odoo
       - /var/log/odoo:/var/log/odoo
     environment:
-      HOST: ${POSTGRES_HOST}
-      USER: ${POSTGRES_USER}
-      PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-odoo}
-      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-odoo-secret}
-      AWS_DEFAULT_REGION: ${MINIO_REGION_NAME:-us-east-1}
-      AWS_ENDPOINT_URL_S3: http://minio:9000
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+      POSTGRES_DB: postgres
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD}
+      AWS_DEFAULT_REGION: ${MINIO_REGION_NAME}
+      AWS_ENDPOINT_URL_S3: http://minio:${MINIO_API_PORT}
     command: >
       sh -c "sleep 5 && 
-      odoo -c /etc/odoo/odoo.conf --init partner_level --without-demo=all --stop-after-init &&
+      odoo -c /etc/odoo/odoo.conf --init=component,storage_backend,storage_backend_s3,fs_storage,fs_attachment,partner_level --without-demo=all --stop-after-init &&
       odoo -c /etc/odoo/odoo.conf"
     restart: unless-stopped
     networks:
@@ -40,62 +37,36 @@ services:
     image: postgres:16
     container_name: odoo-db
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PGDATA: ${POSTGRES_PGDATA}
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - db-data:${POSTGRES_PGDATA}
-    # (optional) expose DB to host; fix the mapping to container 5432
+      - db-data:/var/lib/postgresql/data/pgdata
     ports:
-      - "${POSTGRES_HOST_PORT:-5433}:5432"
+      - "5433:5433"  # 可选：用于调试数据库连接
+    restart: unless-stopped
+    networks:
+      - odoo-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U odoo -d postgres"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 30s
-    networks:
-      - odoo-network
-
   minio:
-    image: minio/minio:latest   # pin a version in prod
-    container_name: minio
+    image: minio/minio:latest
     command: server /data --console-address ":9001"
     environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-odoo}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-odoo-secret}
-      MINIO_REGION_NAME: ${MINIO_REGION_NAME:-us-east-1}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_REGION_NAME: ${MINIO_REGION_NAME}
     volumes:
-      - minio-data:/data
-    ports:
-      - "9000:9000"   # S3 API
-      - "9001:9001"   # Web console
-    networks:
-      - odoo-network
-    restart: unless-stopped
-
-  # one-shot init to create the bucket (idempotent)
-  minio-init:
-    image: minio/mc:latest
-    container_name: minio-init
-    depends_on:
-      - minio
-    entrypoint: >
-      /bin/sh -c "
-      until mc alias set local http://minio:9000 ${MINIO_ROOT_USER:-odoo} ${MINIO_ROOT_PASSWORD:-odoo-secret}; do
-        echo 'waiting for minio...'; sleep 2;
-      done &&
-      mc mb -p local/${MINIO_BUCKET:-odoo} || true &&
-      mc anonymous set none local/${MINIO_BUCKET:-odoo} &&
-      echo 'Bucket ready: ${MINIO_BUCKET:-odoo}';
-      "
-    restart: "no"
-    networks:
-      - odoo-network
+      - ${MINIO_DATA_DIR}:/data
+    ports: ["${MINIO_API_PORT}:9000","${MINIO_CONSOLE_PORT}:9001"]
+    networks: [odoo-network]
 volumes:
   odoo-data:
-  minio-data:
   db-data:
 
 networks:

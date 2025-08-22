@@ -1,0 +1,4 @@
+[submodule "external-addons/storage"]
+	path = external-addons/storage
+	url = https://github.com/OCA/storage.git
+	branch = 18.0
